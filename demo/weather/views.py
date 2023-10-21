@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .form import CityForm
 from .models import City
-import requests
+import requests 
 from django.contrib import messages
 
 def home(request):
@@ -42,3 +42,15 @@ def delete_city(request,CName):
     City.objects.get(name=CName).delete()
     messages.success(request," "+CName+" Removed Successfully...!!!")
     return redirect('Home')
+
+
+   
+'''   total=int(count)+1
+   response= render(request,'cook.html',{'count':total})
+   response.set_cookie('count',total)
+   return response'''
+
+
+#form.cleaned_data: returns a dictionary of validated form input fields and their values, where string primary keys are returned as objects.
+
+#form.data: returns a dictionary of un-validated form input fields and their values in string format (i.e. not objects).
